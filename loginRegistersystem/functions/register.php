@@ -59,8 +59,9 @@ if(isset($_POST['username']) &&
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$name, $email, $hashed_password]);
 
-            $success = "Successfully registered. Thank you!";
-            header("Location: ../pages/registerPage.php?success=" . urlencode($success));
+            // Redirect to login page with success message
+            $success = "You have successfully registered. Now, please login!";
+            header("Location: ../pages/loginPage.php?success=" . urlencode($success));
             exit;
         }
     }
